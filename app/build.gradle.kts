@@ -57,6 +57,7 @@ dependencies {
     implementation(libs.retrofit.moshi.converter)
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
+    implementation(libs.okhttp.logging)
 
     // Hilt
     implementation(libs.hilt.android)

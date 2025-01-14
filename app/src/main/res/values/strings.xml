@@ -7,4 +7,6 @@
     <string name="back">Back\n</string>
     <string name="about_this_app_description">This app was created during the process of a take home interview for the company called Fetch. While it started as a test of knowledge, it quickly became a small pet project. Afterall, how often does one get the chance to create an app from scratch? 👨🏻‍💻</string>
     <string name="more_to_come">More to come!</string>
+    <string name="pull_to_refresh">Pull to refresh</string>
+    <string name="last_updated">Last updated: </string>
 </resources>

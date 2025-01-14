@@ -18,6 +18,7 @@ class ItemRepository @Inject constructor(
     fun getItems(): Flow<List<Item>> {
         return itemDao.getAllItems().map { entities ->
             entities.map { Item(it.id, it.listId, it.name) }
+                .sortedWith(compareBy({ it.listId }, { it.name ?: "" }))
         }
     }
 

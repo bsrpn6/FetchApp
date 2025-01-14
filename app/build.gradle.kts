@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "me.brandonray.fetchapp"
-        minSdk = 28
+        minSdk = 31
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -52,7 +52,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.android.material)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.splashscreen)
 
     // Retrofit & Moshi
     implementation(libs.retrofit)

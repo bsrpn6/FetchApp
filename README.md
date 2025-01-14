@@ -68,6 +68,11 @@ custom splash screen.
     - MVVM (Model-View-ViewModel)
     - Hilt for Dependency Injection
 - **UI Framework:** Jetpack Compose
+    - **Dynamic Theming**: Fully supports light and dark themes using Material Design 3 and
+      MaterialTheme for consistent UI.
+    - **Dark Mode State Management:**
+        - DataStore for persisting dark mode preferences.
+        - Reactive state handling with Flow and collectAsState to adapt to changes.
 - **Data Storage:**
     - Retrofit for API calls
     - Room Database for offline caching
@@ -101,37 +106,28 @@ custom splash screen.
 - Smooth transitions for expanding and collapsing lists.
 - Add subtle feedback animations for user interactions.
 
-### 3. **Dark Mode Support**
-
-- Enhance UI to fully support dark mode seamlessly.
-
-### 4. **Error Screens**
+### 3. **Error Screens**
 
 - Introduce user-friendly error screens for network or data issues.
 - Include retry mechanisms.
 
-### 5. **Localization**
+### 4. **Localization**
 
 - Support multiple languages to make the app globally accessible.
 
-### 6. **App Icon and Splash Screen Improvements**
-
-- Use adaptive icons for various devices.
-- Optimize the splash screen with better scaling.
-
-### 7. **Data Filtering and Sorting**
+### 5. **Data Filtering and Sorting**
 
 - Add options for users to filter and sort the displayed data.
 
-### 8. **Expandable Header Customization**
+### 6. **Expandable Header Customization**
 
 - Allow users to customize expanded header styles or behavior.
 
-### 9. **Optimized Offline Mode**
+### 7. **Optimized Offline Mode**
 
 - Use WorkManager to periodically sync data in the background.
 
-### 10. **Detailed Analytics**
+### 8. **Detailed Analytics**
 
 - Add event tracking and performance analytics.
 

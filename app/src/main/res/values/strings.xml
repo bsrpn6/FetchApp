@@ -9,4 +9,7 @@
     <string name="more_to_come">More to come!</string>
     <string name="pull_to_refresh">Pull to refresh</string>
     <string name="last_updated">Last updated: </string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="app_version">"App Version: "</string>
 </resources>

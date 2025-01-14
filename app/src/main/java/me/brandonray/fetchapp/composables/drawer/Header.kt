@@ -40,14 +40,18 @@ fun Header(
             Icon(imageVector = Icons.Default.Menu,
                 contentDescription = stringResource(R.string.menu),
                 modifier = Modifier
-                    .clickable { scope.launch { drawerState!!.open() } }
-                    .padding(end = 16.dp))
+                    .clickable { scope.launch { drawerState?.open() } }
+                    .padding(end = 16.dp),
+                tint = MaterialTheme.colorScheme.onBackground
+            )
         } else {
             Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(R.string.back),
                 modifier = Modifier
                     .clickable { navController.navigateUp() }
-                    .padding(end = 16.dp))
+                    .padding(end = 16.dp),
+                tint = MaterialTheme.colorScheme.onBackground
+            )
         }
         Text(
             text = title,

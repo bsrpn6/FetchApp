@@ -13,6 +13,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+private const val TAG = "NetworkModule"
+
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
@@ -50,7 +52,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService {
-        Log.d("NetworkModule", "Providing ApiService")
+        Log.d(TAG, "Providing ApiService")
         return retrofit.create(ApiService::class.java)
     }
 }

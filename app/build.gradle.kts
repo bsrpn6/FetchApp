@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -56,6 +57,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.splashscreen)
+    implementation(libs.androidx.datastore)
 
     // Retrofit & Moshi
     implementation(libs.retrofit)

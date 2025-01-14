@@ -23,6 +23,7 @@ fun DrawerContent(onItemClick: (String) -> Unit) {
         Text(
             text = stringResource(R.string.menu),
             style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier.padding(bottom = 16.dp)
         )
         DrawerItem(label = stringResource(R.string.home), onClick = { onItemClick("main") })

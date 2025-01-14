@@ -56,4 +56,10 @@ class ItemViewModel @Inject constructor(
             }
         }
     }
+
+    fun clearCache() {
+        viewModelScope.launch {
+            repository.clearCache()
+        }
+    }
 }

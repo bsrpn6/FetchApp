@@ -25,11 +25,15 @@ class ItemRepository @Inject constructor(
     suspend fun refreshItems() {
         try {
             val items = apiService.getItems().filter { !it.name.isNullOrBlank() }
-            itemDao.clearItems()
+            clearCache()
             itemDao.insertItems(items.map { ItemEntity(it.id, it.listId, it.name ?: "Unknown") })
         } catch (e: Exception) {
             Log.e(TAG, "Error refreshing items", e)
             throw e
         }
+    }
+
+    suspend fun clearCache() {
+        itemDao.clearItems()
     }
 }

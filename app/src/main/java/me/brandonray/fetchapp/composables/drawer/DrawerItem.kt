@@ -18,6 +18,10 @@ fun DrawerItem(label: String, onClick: () -> Unit) {
             .clickable(onClick = onClick)
             .padding(vertical = 8.dp)
     ) {
-        Text(text = label, style = MaterialTheme.typography.bodyLarge)
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurface
+        )
     }
 }

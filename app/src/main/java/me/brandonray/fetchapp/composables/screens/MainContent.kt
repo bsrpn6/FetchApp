@@ -1,6 +1,5 @@
 package me.brandonray.fetchapp.composables.screens
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -45,8 +44,6 @@ fun MainContent(itemViewModel: ItemViewModel, navController: NavController) {
 
     val pullToRefreshState = rememberPullToRefreshState()
 
-    Log.d("MainContent", "Last updated: $lastUpdated")
-
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -72,7 +69,6 @@ fun MainContent(itemViewModel: ItemViewModel, navController: NavController) {
                     .fillMaxSize()
                     .padding(paddingValues)
             ) {
-                // Pull-to-refresh content
                 PullToRefreshBox(
                     state = pullToRefreshState,
                     isRefreshing = isRefreshing,

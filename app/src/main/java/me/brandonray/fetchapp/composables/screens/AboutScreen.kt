@@ -22,7 +22,7 @@ fun AboutScreen() {
         Text(
             text = stringResource(R.string.about_this_app_description),
             style = MaterialTheme.typography.bodyLarge,
-
-            )
+            color = MaterialTheme.colorScheme.onSurface
+        )
     }
 }

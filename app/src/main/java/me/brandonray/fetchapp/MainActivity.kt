@@ -1,8 +1,6 @@
 package me.brandonray.fetchapp
 
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -21,14 +19,11 @@ class MainActivity : ComponentActivity() {
     private val itemViewModel: ItemViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        val splashScreen =
             installSplashScreen()
-        } else {
-            null
-        }
         super.onCreate(savedInstanceState)
 
-        splashScreen?.setKeepOnScreenCondition {
+        splashScreen.setKeepOnScreenCondition {
             itemViewModel.items.value.isEmpty()
         }
 
@@ -39,9 +34,7 @@ class MainActivity : ComponentActivity() {
         }
 
         lifecycleScope.launch {
-            itemViewModel.items.collect { items ->
-                Log.d(TAG, "Received items: $items")
-            }
+            itemViewModel.refreshItems()
         }
     }
 }

@@ -7,7 +7,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import me.brandonray.fetchapp.repository.ItemRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -53,12 +52,5 @@ class NetworkModule {
     fun provideApiService(retrofit: Retrofit): ApiService {
         Log.d("NetworkModule", "Providing ApiService")
         return retrofit.create(ApiService::class.java)
-    }
-
-    @Provides
-    @Singleton
-    fun provideItemRepository(apiService: ApiService): ItemRepository {
-        Log.d("NetworkModule", "Providing ItemRepository")
-        return ItemRepository(apiService)
     }
 }

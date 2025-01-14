@@ -1,6 +1,5 @@
 package me.brandonray.fetchapp.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,26 +12,36 @@ import me.brandonray.fetchapp.repository.ItemRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class ItemViewModel @Inject constructor(private val itemRepository: ItemRepository) : ViewModel() {
+class ItemViewModel @Inject constructor(
+    private val repository: ItemRepository
+) : ViewModel() {
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+
     private val _items = MutableStateFlow<List<Item>>(emptyList())
     val items: StateFlow<List<Item>> = _items.asStateFlow()
 
     init {
-        fetchAndProcessItems()
+        fetchItems()
     }
 
-    private fun fetchAndProcessItems() {
+    private fun fetchItems() {
         viewModelScope.launch {
-            try {
-                val fetchedItems = itemRepository.fetchItems()
-                val processedItems = fetchedItems
-                    .filter { !it.name.isNullOrBlank() }
-                    .sortedWith(compareBy({ it.listId }, { it.name }))
-                _items.value = processedItems
-                Log.d("ItemViewModel", "Processed items: $processedItems")
-            } catch (e: Exception) {
-                Log.e("ItemViewModel", "Error fetching and processing items", e)
-                _items.value = emptyList()
+            _isLoading.value = true
+            repository.getItems().collect { fetchedItems ->
+                _items.value = fetchedItems
+                _isLoading.value = false
+            }
+        }
+    }
+
+    fun refreshItems() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            repository.refreshItems()
+            repository.getItems().collect { refreshedItems ->
+                _items.value = refreshedItems
+                _isLoading.value = false
             }
         }
     }

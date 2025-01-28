@@ -7,5 +7,5 @@ import androidx.room.PrimaryKey
 data class ItemEntity(
     @PrimaryKey val id: Int,
     val listId: Int,
-    val name: String
+    val name: String?
 )

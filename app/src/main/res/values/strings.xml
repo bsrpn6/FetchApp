@@ -12,4 +12,5 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="clear_cache">Clear Cache</string>
     <string name="app_version">"App Version: "</string>
+    <string name="filter_mode">Filter Mode</string>
 </resources>

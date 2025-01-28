@@ -25,9 +25,11 @@ class ItemRepository @Inject constructor(
     //TODO - implement update strategy instead of clear and re-insert
     suspend fun refreshItems() {
         try {
-            val items = apiService.getItems().filter { !it.name.isNullOrBlank() }
-            clearCache()
-            itemDao.insertItems(items.map { ItemEntity(it.id, it.listId, it.name ?: "Unknown") })
+            val items = apiService.getItems().map {
+                it.copy(name = it.name?.takeIf { it.isNotBlank() } ?: "Unknown")
+            }
+            itemDao.clearItems()
+            itemDao.insertItems(items.map { ItemEntity(it.id, it.listId, it.name!!) })
         } catch (e: Exception) {
             Log.e(TAG, "Error refreshing items", e)
             throw e
